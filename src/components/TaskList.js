@@ -10,7 +10,7 @@ const TaskList = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('http://localhost/tasks');
+      const response = await fetch('http://localhost:3000/tasks');
       const data = await response.json();
       setTasks(data);
     }catch (error) {
