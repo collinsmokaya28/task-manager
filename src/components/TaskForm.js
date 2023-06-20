@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TaskForm.css';
 
+
 const TaskForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -27,22 +28,24 @@ const TaskForm = () => {
   };
 
   return (
-    <div>
+    <div className="task-form">
       <h2>Create Task</h2>
       <form onSubmit={handleSubmit}>
+        <div className="input-group">
         <label>Title:</label>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <br />
+        </div>
+        <div className="input-group">
         <label>Description:</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <br />
+        </div>
         <button type="submit">Create</button>
       </form>
     </div>

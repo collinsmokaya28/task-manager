@@ -1,5 +1,6 @@
 .task-form {
     margin-top: 20px;
+    margin-left: 15px;
   }
   
   .task-form label {
@@ -9,9 +10,13 @@
   
   .task-form input,
   .task-form textarea {
-    width: 100%;
+    width: 50%;
     padding: 5px;
     margin-bottom: 10px;
+  }
+
+  .task-form .input-group {
+    margin-bottom: 15px;
   }
   
   .task-form button {
