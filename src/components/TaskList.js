@@ -9,17 +9,15 @@ const TaskList = () => {
   }, []);
 
   const fetchTasks = async () => {
-    const response = await fetch('http://localhost:3000/tasks');
-    const data = await response.json();
-    setTasks(data);
+    try {
+      const response = await fetch('http://localhost/tasks');
+      const data = await response.json();
+      setTasks(data);
+    }catch (error) {
+      console.log('Error fetching tasks', error);
+    }
   };
 
-  const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/tasks/${id}`, {
-      method: 'DELETE',
-    });
-    fetchTasks();
-  };
 
   return (
     <div>
@@ -28,7 +26,7 @@ const TaskList = () => {
         <div key={task.id}>
           <h3>{task.title}</h3>
           <p>{task.description}</p>
-          <button onClick={() => handleDelete(task.id)}>Delete</button>
+          <p>Completed: {task.completed ? 'Yes' : 'No'}</p>
         </div>
       ))}
     </div>
