@@ -17,16 +17,27 @@ const TaskList = () => {
       console.log('Error fetching tasks', error);
     }
   };
-
-
+  const deleteTask = async (taskId) => {
+    try {
+      await fetch(`http://localhost:3000/tasks/${taskId}`, {
+        method: 'DELETE',
+      });
+      await fetchTasks();
+    } catch (error) {
+      console.log('Error deleting task', error);
+    }
+  };
+  
+  
   return (
-    <div>
+    <div className="TaskList">
       <h2>Task List</h2>
       {tasks.map((task) => (
-        <div key={task.id}>
+        <div key={task.id} className="task">
           <h3>{task.title}</h3>
           <p>{task.description}</p>
           <p>Completed: {task.completed ? 'Yes' : 'No'}</p>
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
         </div>
       ))}
     </div>

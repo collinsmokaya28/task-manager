@@ -1,23 +1,29 @@
-.task-list {
-    margin-top: 20px;
-  }
-  
-  .task {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .task h3 {
-    margin-top: 0;
-  }
-  
-  .task p {
-    margin-bottom: 0;
-  }
-  
-  .task button {
-    margin-top: 10px;
-  }
+.TaskList {
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.task {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  width: 50%;
+  background-color: #f9f9f9;
+}
+
+.task h3 {
+  margin-top: 0;
+  margin-left: 15px;
+}
+
+.task p {
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.task button {
+  margin-top: 10px;
+}
+
   
