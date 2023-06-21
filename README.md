@@ -13,8 +13,8 @@ This is the front-end application for a simple task management system. It provid
 
 Before running the application, ensure that you have the following installed on your system:
 
-- Node.js (version X.X.X)
-- npm (version X.X.X)
+- Node.js (version 12.22.9)
+- npm (version 8.13.2)
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ git clone https://github.com/collinsmokaya28/task-manager.git
 
 2. Navigate to the project directory:
 
-cd task-management-system-frontend
+cd task-manager
 
 
 3. Install the dependencies:
