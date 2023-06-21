@@ -10,6 +10,17 @@
   margin-left: 15px;
   width: 50%;
   background-color: #f9f9f9;
+  text-align: center;
+}
+
+.task .delete-button {
+  display: block;
+  margin: 10px auto;
+}
+
+.task .toggle-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 .task h3 {

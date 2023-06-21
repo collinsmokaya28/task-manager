@@ -13,22 +13,37 @@ const TaskList = () => {
       const response = await fetch('http://localhost:3000/tasks');
       const data = await response.json();
       setTasks(data);
-    }catch (error) {
+    } catch (error) {
       console.log('Error fetching tasks', error);
     }
   };
+
   const deleteTask = async (taskId) => {
     try {
       await fetch(`http://localhost:3000/tasks/${taskId}`, {
         method: 'DELETE',
       });
-      await fetchTasks();
+      fetchTasks();
     } catch (error) {
       console.log('Error deleting task', error);
     }
   };
-  
-  
+
+  const toggleCompleted = async (taskId, completed) => {
+    try {
+      await fetch(`http://localhost:3000/tasks/${taskId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ completed }),
+      });
+      fetchTasks();
+    } catch (error) {
+      console.log('Error toggling completed status', error);
+    }
+  };
+
   return (
     <div className="TaskList">
       <h2>Task List</h2>
@@ -37,7 +52,11 @@ const TaskList = () => {
           <h3>{task.title}</h3>
           <p>{task.description}</p>
           <p>Completed: {task.completed ? 'Yes' : 'No'}</p>
-          <button onClick={() => deleteTask(task.id)}>Delete</button>
+          <button className="delete-button" onClick={() => deleteTask(task.id)}>Delete</button>
+          <div className="toggle-buttons">
+            <button onClick={() => toggleCompleted(task.id, true)}>Yes</button>
+            <button onClick={() => toggleCompleted(task.id, false)}>No</button>
+          </div>
         </div>
       ))}
     </div>
@@ -45,3 +64,4 @@ const TaskList = () => {
 };
 
 export default TaskList;
+
